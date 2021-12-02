@@ -7,16 +7,17 @@ import java.util.Map;
 
 public class ItemRepository {
 
+    private final Map<Long, Item> items;
+
     public ItemRepository() {
+        items = new HashMap<>();
     }
 
-    private Map<Long, Item> items = new HashMap<>();
-
-    public void add(Long id, Item item){
-        items.put(id, item);
+    public void add(Item item) {
+        items.put(item.getId(), item);
     }
 
-    public String get(Long id){
-        return items.get(id).getName();
+    public Item get(Long id) {
+        return items.get(id);
     }
 }
