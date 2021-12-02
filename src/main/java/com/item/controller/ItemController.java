@@ -14,21 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/item")
 public class ItemController {
 
-    private final ItemCommand commandController;
-    private final ItemQuery queryController;
+    private final ItemCommand itemCommand;
+    private final ItemQuery itemQuery;
 
     public ItemController() {
-        commandController = new ItemCommand();
-        queryController = new ItemQuery();
+        itemCommand = new ItemCommand();
+        itemQuery = new ItemQuery();
     }
 
     @GetMapping("/{id}")
     public Item get(@PathVariable Long id) {
-        return queryController.get(id);
+        return itemQuery.get(id);
     }
 
     @PutMapping()
     public void add(@RequestBody Item item) {
-        commandController.add(item);
+        this.itemCommand.add(item);
     }
 }
