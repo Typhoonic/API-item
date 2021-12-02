@@ -2,14 +2,16 @@ package com.item.domain;
 
 public class Item {
 
-    private String name;
+    private final Long id;
+    private final String name;
 
-    public Item(String name) {
+    public Item(Long id, String name) {
+        this.id = id;
         this.name = name;
     }
 
-    public String getName() {
-        return name;
+    public Long getId() {
+        return id;
     }
 
     @Override
@@ -19,11 +21,11 @@ public class Item {
 
         Item item = (Item) o;
 
-        return name.equals(item.name);
+        return id.equals(item.id);
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        return id.hashCode();
     }
 }
