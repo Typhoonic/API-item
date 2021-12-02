@@ -5,13 +5,11 @@ import com.item.domain.Item;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ItemRepository {
+public enum ItemRepository {
 
-    private final Map<Long, Item> items;
+    INSTANCE;
 
-    public ItemRepository() {
-        items = new HashMap<>();
-    }
+    private final Map<Long, Item> items = new HashMap<>();
 
     public void add(Item item) {
         items.put(item.getId(), item);
