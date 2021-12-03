@@ -23,7 +23,7 @@ public class ItemController {
     }
 
     @GetMapping("/{id}")
-    public Item get(@PathVariable Long id) {
+    public Item get(@PathVariable Long id) throws Exception {
         return itemQuery.get(id);
     }
 

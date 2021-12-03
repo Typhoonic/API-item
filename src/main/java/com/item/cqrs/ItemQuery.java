@@ -11,7 +11,7 @@ public class ItemQuery {
         this.itemRepository = ItemRepository.INSTANCE;
     }
 
-    public Item get(Long id) {
+    public Item get(Long id) throws Exception {
         return itemRepository.get(id);
     }
 }

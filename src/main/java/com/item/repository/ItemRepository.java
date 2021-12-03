@@ -15,7 +15,15 @@ public enum ItemRepository {
         items.put(item.getId(), item);
     }
 
-    public Item get(Long id) {
+    public Item get(Long id) throws Exception {
+
+        if(items.containsKey(id))
         return items.get(id);
+
+        throw new Exception();
+    }
+
+    public int size() {
+        return items.size();
     }
 }
