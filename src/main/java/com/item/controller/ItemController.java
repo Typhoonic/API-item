@@ -3,6 +3,7 @@ package com.item.controller;
 import com.item.cqrs.ItemCommand;
 import com.item.cqrs.ItemQuery;
 import com.item.domain.Item;
+import com.item.exception.ItemNotFoundException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,7 +24,7 @@ public class ItemController {
     }
 
     @GetMapping("/{id}")
-    public Item get(@PathVariable Long id) throws Exception {
+    public Item get(@PathVariable Long id) throws ItemNotFoundException {
         return itemQuery.get(id);
     }
 

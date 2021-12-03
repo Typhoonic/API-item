@@ -1,6 +1,7 @@
 package com.item.repository;
 
 import com.item.domain.Item;
+import com.item.exception.ItemNotFoundException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,12 +16,12 @@ public enum ItemRepository {
         items.put(item.getId(), item);
     }
 
-    public Item get(Long id) throws Exception {
+    public Item get(Long id) throws ItemNotFoundException {
 
         if(items.containsKey(id))
         return items.get(id);
 
-        throw new Exception();
+        throw new ItemNotFoundException();
     }
 
     public int size() {
